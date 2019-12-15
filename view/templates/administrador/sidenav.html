@@ -1,0 +1,28 @@
+<div>
+    <!-- Menu Lateral -->
+    <md-sidenav class="md-sidenav-left" md-component-id="sideNavId"
+      md-is-locked-open="$mdMedia('gt-md') && sideNav.isOpened"
+      md-whiteframe="4">
+
+        <md-toolbar ng-controller="SideNavToolbarCtrl as vm">
+            <span class="md-title">Usuário</span>
+            <span class="md-subhead">Campus</span>
+        </md-toolbar>
+
+        <!-- É necessário criar um controller para gerenciar o Sidnav: MenuController -->
+        <md-content layout-padding ng-controller="SideNavMenuCtrl as vm">
+
+            <ul class="side-menu">
+                <li ng-repeat="section in vm.menu.getSectionsByUserRole()" class="parent-list-item" ng-class="{'parentActive' : vm.isSectionSelected(section)}">
+                    <h2 class="menu-heading" ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}">
+                        {{section}}
+                    </h2>
+                    <menu-link section="section" ng-if="section.type === 'link'"></menu-link>
+                    <menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
+                </li>
+            </ul>
+
+        </md-content>
+
+    </md-sidenav>
+</div>
