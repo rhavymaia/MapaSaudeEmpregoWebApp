@@ -4,17 +4,17 @@
 app.controller('ListarCrasCtrl', function ($scope, toastUtil,
   CrasService) {
 
-    $scope.nome = "";
+    $scope.municipio = "";
     $scope.crass = [];
 
-    $scope.pesquisar = function (nome){
-        if(nome.length >= 3) {
-            if (nome.match(/[a-zA-Z]/i) != null) {
-                eventoService.buscarEventoPorNome(nome)
+    $scope.pesquisar = function (municipio){
+        if(municipio.length >= 3) {
+            if (municipio.match(/[a-zA-Z]/i) != null) {
+                CrasService.buscarCrasPorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
-        } else if (nome.length === 0) {
+        } else if (municipio.length === 0) {
             $scope.eventos = [];
         }
     };
@@ -26,7 +26,7 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
     }
 
     $scope.limparBusca = function () {
-        $scope.nome = "";
+        $scope.municipio = "";
         $scope.crass = [];
     };
 
@@ -39,7 +39,7 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
     }
 
     $scope.query = {
-        order: 'nome',
+        order: 'municipio',
         limit: 8,
         page: 1
     };

@@ -10,7 +10,7 @@
                 <md-card-header-text>
                     <span class="md-title">CRAS</span>
                     <span class="md-subhead">
-                        Digite o nome do Centros de Referência de Assistência Social (CRAS) no campo
+                        Digite o Município do Centros de Referência de Assistência Social (CRAS) no campo
                         abaixo para buscar.
                     </span>
                 </md-card-header-text>
@@ -27,7 +27,7 @@
                     <ng-md-icon icon="search" size="32"></ng-md-icon>
 
                     <div class="toolbar-input" flex>
-                        <input type="text" ng-model="nome" ng-keyup="pesquisar(nome)" placeholder="Nome do CRAS">
+                        <input type="text" ng-model="municipio" ng-keyup="pesquisar(municipio)" placeholder="Município">
                     </div>
 
                     <md-button aria-label="Limpar Busca" ng-click="limparBusca()">
@@ -59,6 +59,12 @@
                                 <ng-md-icon icon="edit" size="18"></ng-md-icon>
                                 <md-tooltip md-direction="bottom">
                                     Editar
+                                </md-tooltip>
+                            </md-button>
+                            <md-button aria-label="Mostrar CRAS no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
+                                <ng-md-icon icon="place" size="18"></ng-md-icon>
+                                <md-tooltip md-direction="bottom">
+                                    Mostrar CRAS no Mapa
                                 </md-tooltip>
                             </md-button>
                         </td>

@@ -9,8 +9,8 @@ app.factory("CrasService", function ($http, serviceCfg) {
         return $http.get(_path);
     }
 
-    var _buscarPorNome = function (nome) {
-        return $http.get(_path + "/nome/" + encodeURI(nome));
+    var _buscarCrasPorMunicipio = function (municipio) {
+        return $http.get(_path + "?municipio=" + encodeURI(municipio));
     }
 
     var _getById = function (id) {
@@ -19,7 +19,7 @@ app.factory("CrasService", function ($http, serviceCfg) {
 
     return {
         listar: _listar,
-        buscarPorNome: _buscarPorNome,
+        buscarCrasPorMunicipio: _buscarCrasPorMunicipio,
         getById: _getById
     };
 });
