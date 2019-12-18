@@ -1,5 +1,5 @@
 /*
- *  Controlar ações da listagem do Evento.
+ *  Controlar ações da listagem Creas.
  */
 app.controller('ListarCreasCtrl', function ($scope, toastUtil, CreasService) {
 
@@ -38,7 +38,7 @@ app.controller('ListarCreasCtrl', function ($scope, toastUtil, CreasService) {
     }
 
     $scope.query = {
-        order: 'nome',
+        order: 'municipio',
         limit: 8,
         page: 1
     };

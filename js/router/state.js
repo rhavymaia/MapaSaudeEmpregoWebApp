@@ -46,13 +46,21 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         controller: 'ListarCreasCtrl',
         controllerAs: 'ListarCreas'
       })
-      
+
       .state('administrador.estabelecimetos', {
         url: '/estabelecimetos',
         title: 'ESTABELECIMETOS',
         templateUrl: 'view/administrador/listar-estabelecimetos.html',
         controller: 'ListarEstabelecimetosCtrl',
         controllerAs: 'ListarEstabelecimetos'
+      })
+
+      .state('administrador.unidades', {
+        url: '/unidades',
+        title: 'UNIDADES',
+        templateUrl: 'view/administrador/listar-unidades.html',
+        controller: 'ListarUnidadesCtrl',
+        controllerAs: 'ListarUnidades'
       })
   })
   //take all whitespace out of string
