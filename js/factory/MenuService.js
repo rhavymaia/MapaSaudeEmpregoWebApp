@@ -20,7 +20,7 @@ app.factory("menu", function($location, $rootScope) {
           },
           {
             name: 'CREAS',
-            state: 'administrador.home',
+            state: 'administrador.creas',
             type: 'link'
           }
         ]
