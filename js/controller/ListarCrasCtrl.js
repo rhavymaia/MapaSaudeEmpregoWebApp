@@ -7,6 +7,8 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
     $scope.municipio = "";
     $scope.crass = [];
 
+    $scope.selectedCras = [];
+
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
@@ -36,6 +38,28 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
 
     function onErrorCallback(error) {
         toastUtil.showErrorToast(error);
+    }
+
+    // Adicionar Dia de Refeição.
+    $scope.detalharCras = function (cras) {
+
+        let dialog = {
+            controller: 'DetalharCrasCtrl',
+            templateUrl: 'view/administrador/modals/detalhar-cras.html',
+            parent: angular.element(document.body),
+            clickOutsideToClose: true,
+            fullscreen: false,
+            locals: {
+                idCras: cras.idCras
+            }
+        };
+
+        $mdDialog.show(dialog)
+            .then(function(response) {})
+            .catch(function (error) {})
+            .finally(limparBusca, function () {
+                $scope.selectedCras = [];
+            });
     }
 
     $scope.query = {
