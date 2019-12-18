@@ -1,37 +1,36 @@
 /*
- Controlar ações da listagem do Cras.
+ *  Controlar ações da listagem dos Estabelecimentos.
  */
-app.controller('ListarCrasCtrl', function ($scope, toastUtil,
-  CrasService) {
+app.controller('ListarEstabelecimentosDeSaudeCtrl', function ($scope, toastUtil,EstabelecimentosDeSaudeService) {
 
     $scope.municipio = "";
-    $scope.crass = [];
+    $scope.EstabelecimentosDeSaude = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
-                CrasService.buscarCrasPorMunicipio(municipio)
+                EstabelecimetosDeSaudeService.buscarEstabelecimentosDeSaudePorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.eventos = [];
+            $scope.estabelecimentosDeSaude = [];
         }
     };
 
-    $scope.listar = function() {
-          CrasService.listar()
+    $scope.ListarEstabelecimetosDeSaude = function() {
+          EstabelecimentosDeSaudeService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.crass = [];
+        $scope.estabelecimentosDeSaude = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.crass = response.data;
+        $scope.estabelecimentosDeSaude = response.data;
     }
 
     function onErrorCallback(error) {
@@ -44,5 +43,5 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
         page: 1
     };
 
-    $scope.listar();
+    $scope.listarEstabelecimentosDeSaude();
 });

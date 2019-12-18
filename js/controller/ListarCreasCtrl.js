@@ -1,37 +1,36 @@
 /*
- Controlar ações da listagem do Cras.
+ *  Controlar ações da listagem Creas.
  */
-app.controller('ListarCrasCtrl', function ($scope, toastUtil,
-  CrasService) {
+app.controller('ListarCreasCtrl', function ($scope, toastUtil, CreasService) {
 
     $scope.municipio = "";
-    $scope.crass = [];
+    $scope.creass = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
-                CrasService.buscarCrasPorMunicipio(municipio)
+                CreasService.buscarCreasPorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.eventos = [];
+            $scope.creass = [];
         }
     };
 
-    $scope.listar = function() {
-          CrasService.listar()
+    $scope.listarCreas = function() {
+          CreasService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.crass = [];
+        $scope.creass = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.crass = response.data;
+        $scope.creass = response.data;
     }
 
     function onErrorCallback(error) {
@@ -44,5 +43,5 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
         page: 1
     };
 
-    $scope.listar();
+    $scope.listarCreas();
 });

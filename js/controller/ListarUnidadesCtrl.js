@@ -1,37 +1,36 @@
 /*
- Controlar ações da listagem do Cras.
+ *  Controlar ações da listagem das unidades.
  */
-app.controller('ListarCrasCtrl', function ($scope, toastUtil,
-  CrasService) {
+app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaService) {
 
     $scope.municipio = "";
-    $scope.crass = [];
+    $scope.unidades = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
-                CrasService.buscarCrasPorMunicipio(municipio)
+                UnidadesService.buscarUnidadesPorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.eventos = [];
+            $scope.unidades = [];
         }
     };
 
-    $scope.listar = function() {
-          CrasService.listar()
+    $scope.listarUnidades = function() {
+          UnidadesService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.crass = [];
+        $scope.unidades = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.crass = response.data;
+        $scope.unidades = response.data;
     }
 
     function onErrorCallback(error) {
@@ -44,5 +43,5 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
         page: 1
     };
 
-    $scope.listar();
+    $scope.listarUnidades();
 });
