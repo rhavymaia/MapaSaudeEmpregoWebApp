@@ -1,15 +1,15 @@
 /*
- *  Mapeamento dos serviço de unidades.
+ *  Mapeamento dos serviço de CRAS.
  */
-app.factory("unidadesService", function ($http, serviceCfg) {
+app.factory("CreasService", function ($http, serviceCfg) {
 
-    var _path = serviceCfg.baseUrl() + "/rest/estabelecimentos/unidade/";
+    var _path = serviceCfg.baseUrl() + "/rest/assistenciasocial/creas";
 
     var _listar = function () {
         return $http.get(_path);
     }
 
-    var _buscarUnidadesPorMunicipio = function (municipio) {
+    var _buscarCreasPorMunicipio = function (municipio) {
         return $http.get(_path + "?municipio=" + encodeURI(municipio));
     }
 
@@ -19,7 +19,7 @@ app.factory("unidadesService", function ($http, serviceCfg) {
 
     return {
         listar: _listar,
-        buscarUnidadesPorMunicipio: _buscarUnidadesPorMunicipio,
+        buscarCreasPorMunicipio: _buscarCreasPorMunicipio,
         getById: _getById
     };
 });
