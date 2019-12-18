@@ -1,0 +1,90 @@
+<md-dialog aria-label="Adicionar Pretensão da Refeição" ng-cloak>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <md-card layout="column">
+                <md-card-content layout="column">
+                    <md-table-container>
+                        <!-- Cabeçalho de opções -->
+                        <md-card-header>
+                            <md-card-avatar>
+                                <ng-md-icon icon="note" size="42"></ng-md-icon>
+                            </md-card-avatar>
+
+                            <md-card-header-text>
+                                <span class="md-title">Confirmação da Pretensão do Dia da Refeição</span>
+                                <span class="md-subhead">
+                        Confirme a Pretensão da Refeição do Aluno ou cancele para voltar a lista dos Dias de Refeição.
+                                </span>
+                            </md-card-header-text>
+                        </md-card-header>
+
+                        <!-- Tabela -->
+                        <md-table-container>
+                            <table md-table>
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column>Nome</th>
+                                        <th md-column>Matrícula</th>
+                                        <th md-column>Refeição</th>
+                                        <th md-column>Dia de Refeição</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row>
+                                        <td md-cell>{{diaRefeicao.matricula.aluno.nome | uppercase}}</td>
+                                        <td md-cell>{{diaRefeicao.matricula.numero}}</td>
+                                        <td md-cell>{{diaRefeicao.refeicao.tipo | uppercase}}</td>
+                                        <td md-cell>{{diaRefeicao.dia.nome | uppercase}}</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </md-table-container>
+                    </md-table-container>
+
+                    <!-- Próxima Semana -->
+                    <md-input-container class="md-block">
+                        <md-checkbox ng-model="pretensao.proximaSemana" aria-label="Próxima semana?" ng-change="changeJustificativaPretensao()">
+                            É pretensão para a próxima semana?
+                        </md-checkbox>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+            <md-card ng-show="pretensao.proximaSemana" class="min-height-250" ng-class="{'fadeIn animated': pretensao.proximaSemana}" layout="column">
+
+                <!-- Cabeçalho de opções -->
+                <md-card-header>
+
+                    <md-card-header-text>
+                        <span class="md-title">Justificativa da pretensão antecipada.</span>
+                        <span class="md-subhead">
+                        O aluno deverá apresentar justificativa para lançar a pretensão na semana não vigente. É importante ressaltar que o não comparecimento no dia da refeição é passível de penalidades.
+                        </span>
+                    </md-card-header-text>
+                </md-card-header>
+
+                <md-card-content layout="column">
+                    <!-- Justificativa da Pretensao -->
+                    <md-input-container flex>
+                        <label>Justificativa</label>
+                        <md-select ng-model="pretensao.justificativaPretensao.id" aria-label="Selecione a Justificativa" required="pretensao.isProximaSemana">
+                            <md-option ng-repeat="justificativaPretensao in justificativasPretensao" value="{{justificativaPretensao.id}}">
+                                {{justificativaPretensao.nome}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="fecharModal()" class="md-warn">
+            Cancelar
+        </md-button>
+        <md-button ng-click="confirmar(diaRefeicao.id)" class="md-primary" style="margin-right:20px;">
+            Confirmar
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
