@@ -49,7 +49,7 @@
                 </thead>
 
                 <tbody md-body>
-                    <tr md-row ng-repeat="cras in crass | limitTo: query.limit: (query.page - 1) * query.limit">
+                    <tr md-row ng-repeat="crass in crass | limitTo: query.limit: (query.page - 1) * query.limit">
                         <td md-cell>{{cras.nomeCras | uppercase}}</td>
                         <td md-cell>{{cras.nomeMunicipio | uppercase}}</td>
                         <td md-cell>{{cras.uf | uppercase}}</td>

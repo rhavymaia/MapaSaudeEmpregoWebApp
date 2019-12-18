@@ -62,6 +62,14 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         controller: 'ListarUnidadesCtrl',
         controllerAs: 'ListarUnidades'
       })
+
+      .state('administrador.empregos', {
+        url: '/empregos',
+        title: 'EMPREGOS',
+        templateUrl: 'view/administrador/listar-empregos.html',
+        controller: 'ListarEmpregosCtrl',
+        controllerAs: 'ListarEmpregos'
+      })
   })
   //take all whitespace out of string
   .filter('nospace', function() {

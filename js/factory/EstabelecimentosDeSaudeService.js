@@ -3,7 +3,7 @@
  */
 app.factory("EstabelecimentosDeSaudeService", function ($http, EstabelecimentosDeSaudeService) {
 
-    var _path = serviceCfg.baseUrl() + "/rest/assistenciasocial/estabelecimentosDeSaude";
+    var _path = serviceCfg.baseUrl() + "/rest/estabelecimentos";
 
     var _listar = function () {
         return $http.get(_path);

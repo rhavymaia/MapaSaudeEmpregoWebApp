@@ -1,36 +1,36 @@
 /*
- *  Controlar ações da listagem das unidades.
+ *  Controlar ações da listagem Creas.
  */
-app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaService) {
+app.controller('ListarEmpregosCtrl', function ($scope, toastUtil, EmpregosService) {
 
     $scope.municipio = "";
-    $scope.unidadess = [];
+    $scope.empregoss = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
-                UnidadesService.buscarUnidadesPorMunicipio(municipio)
+                EmpregosService.buscarEmpregosPorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.unidadess = [];
+            $scope.empregoss = [];
         }
     };
 
-    $scope.listarUnidades = function() {
-          UnidadesService.listar()
+    $scope.listarCreas = function() {
+          EmpregosService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.unidadess = [];
+        $scope.empregoss = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.unidadess = response.data;
+        $scope.empregoss = response.data;
     }
 
     function onErrorCallback(error) {
@@ -43,5 +43,5 @@ app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaServic
         page: 1
     };
 
-    $scope.listarUnidades();
+    $scope.listarEmpregos();
 });
