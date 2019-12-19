@@ -4,7 +4,7 @@
 app.controller('ListarServicosEspecializadosCtrl', function ($scope, toastUtil, ServicosEspecializadosService) {
 
     $scope.codUnidade = "";
-    $scope.servicosEspecializadoss = [];
+    $scope.servicosEspecializados = [];
 
     $scope.pesquisar = function (codUnidade){
         if(codUnidade.length >= 3) {
@@ -14,7 +14,7 @@ app.controller('ListarServicosEspecializadosCtrl', function ($scope, toastUtil, 
                     .catch(onErrorCallback);
             }
         } else if (codUnidade.length === 0) {
-            $scope.servicosEspecializadoss = [];
+            $scope.servicosEspecializados = [];
         }
     };
 
@@ -26,11 +26,11 @@ app.controller('ListarServicosEspecializadosCtrl', function ($scope, toastUtil, 
 
     $scope.limparBusca = function () {
         $scope.codUnidade = "";
-        $scope.servicosEspecializadoss = [];
+        $scope.servicosEspecializados = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.servicosEspecializadoss = response.data;
+        $scope.servicosEspecializados = response.data;
     }
 
     function onErrorCallback(error) {

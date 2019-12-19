@@ -48,28 +48,15 @@
                 </thead>
 
                 <tbody md-body>
-                    <tr md-row ng-repeat="servicosEspecializadoss in servicosEspecializadoss | limitTo: query.limit: (query.page - 1) * query.limit">
-                        <td md-cell>{{servicosEspecializadoss.descricaoClassificacaoServico | uppercase}}</td>
-                        <td md-cell>{{servicosEspecializadoss.quantidadeProfissionais | uppercase}}</td>
+                    <tr md-row ng-repeat="servicoEspecializado in servicosEspecializados | limitTo: query.limit: (query.page - 1) * query.limit">
+                        <td md-cell>{{servicoEspecializado.descricaoClassificacaoServico | uppercase}}</td>
+                        <td md-cell>{{servicoEspecializado.quantidadeProfissionais | uppercase}}</td>
                         <td md-cell>
-
-                            <md-button aria-label="Editar Aluno" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="edit" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Editar
-                                </md-tooltip>
-                            </md-button>
-                            <md-button aria-label="Mostrar Servicos Especializadoss no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="place" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Mostrar Profissionais no Mapa
-                                </md-tooltip>
-                            </md-button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </md-table-container>
-        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{servicosEspecializadoss.length}}" md-page-select></md-table-pagination>
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{servicosEspecializados.length}}" md-page-select></md-table-pagination>
     </md-card>
 </md-content>

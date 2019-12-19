@@ -1,36 +1,36 @@
 /*
- *  Controlar ações da listagem de Profissionais.
+ *  Controlar ações da listagem de Especialidades.
  */
-app.controller('ListarProfissionaisCtrl', function ($scope, toastUtil, ProfissionaisService) {
+app.controller('ListarEspecialidadesCtrl', function ($scope, toastUtil, EspecialidadesService) {
 
     $scope.codUnidade = "";
-    $scope.profissionais = [];
+    $scope.especialidades = [];
 
     $scope.pesquisar = function (codUnidade){
         if(codUnidade.length >= 3) {
             if (codUnidade.match(/[a-zA-Z]/i) != null) {
-                EmpregosService.buscarProfissionaisPorCodigoDaUnidade(codUnidade)
+                EspecialidadesService.buscarEspecialidadesPorCodigoDaUnidade(codUnidade)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
         } else if (codUnidade.length === 0) {
-            $scope.profissionais = [];
+            $scope.especialidades = [];
         }
     };
 
-    $scope.listarProfissionais = function() {
-          ProfissionaisService.listar()
+    $scope.listarEspecialidades = function() {
+          EspecialidadesService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
         $scope.codUnidade = "";
-        $scope.profissionais = [];
+        $scope.especialidades = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.profissionais = response.data;
+        $scope.especialidades = response.data;
     }
 
     function onErrorCallback(error) {
@@ -43,5 +43,5 @@ app.controller('ListarProfissionaisCtrl', function ($scope, toastUtil, Profissio
         page: 1
     };
 
-    $scope.listarProfissionais();
+    $scope.listarEspecialidades();
 });

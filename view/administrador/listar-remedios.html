@@ -53,32 +53,18 @@
                 </thead>
 
                 <tbody md-body>
-                    <tr md-row ng-repeat="remedioss in remedioss | limitTo: query.limit: (query.page - 1) * query.limit">
-                        <td md-cell>{{remedios.nomeProduto | uppercase}}</td>
-                        <td md-cell>{{remedios.apresentacao | uppercase}}</td>
-                        <td md-cell>{{remedios.classeTerapeutica | uppercase}}</td>
-                        <td md-cell>{{remedios.precoLiberado | uppercase}}</td>
-                        <td md-cell>{{remedios.restricao | uppercase}}</td>
-                        <td md-cell>{{remedios.ultimaAlteracao | uppercase}}</td>
+                    <tr md-row ng-repeat="remedio in remedios | limitTo: query.limit: (query.page - 1) * query.limit">
+                        <td md-cell>{{remedio.nomeProduto | uppercase}}</td>
+                        <td md-cell>{{remedio.apresentacao | uppercase}}</td>
+                        <td md-cell>{{remedio.classeTerapeutica | uppercase}}</td>
+                        <td md-cell>{{remedio.precoLiberado | uppercase}}</td>
+                        <td md-cell>{{remedio.restricao | uppercase}}</td>
+                        <td md-cell>{{remedio.ultimaAlteracao | uppercase}}</td>
                         <td md-cell>
-
-                            <md-button aria-label="Editar Aluno" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="edit" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Editar
-                                </md-tooltip>
-                            </md-button>
-                            <md-button aria-label="Mostrar Remedios no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="place" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Mostrar Remédios no Mapa
-                                </md-tooltip>
-                            </md-button>
-                        </td>
                     </tr>
                 </tbody>
             </table>
         </md-table-container>
-        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{profissionaiss.length}}" md-page-select></md-table-pagination>
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{remedios.length}}" md-page-select></md-table-pagination>
     </md-card>
 </md-content>

@@ -5,7 +5,7 @@ app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
   RemediosService) {
 
     $scope.nomeProduto = "";
-    $scope.remedioss = [];
+    $scope.remedios = [];
 
     $scope.pesquisar = function (nomeProduto){
         if(nomeProduto.length >= 3) {
@@ -15,7 +15,7 @@ app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
                     .catch(onErrorCallback);
             }
         } else if (nomeProduto.length === 0) {
-            $scope.remedioss = [];
+            $scope.remedios = [];
         }
     };
 
@@ -27,11 +27,11 @@ app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
 
     $scope.limparBusca = function () {
         $scope.nomeProduto = "";
-        $scope.remedioss = [];
+        $scope.remedios = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.remedioss = response.data;
+        $scope.remedios = response.data;
     }
 
     function onErrorCallback(error) {

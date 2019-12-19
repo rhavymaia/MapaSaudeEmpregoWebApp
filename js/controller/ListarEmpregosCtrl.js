@@ -4,7 +4,7 @@
 app.controller('ListarEmpregosCtrl', function ($scope, toastUtil, EmpregosService) {
 
     $scope.municipio = "";
-    $scope.empregoss = [];
+    $scope.empregos = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
@@ -14,11 +14,11 @@ app.controller('ListarEmpregosCtrl', function ($scope, toastUtil, EmpregosServic
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.empregoss = [];
+            $scope.empregos = [];
         }
     };
 
-    $scope.listarCreas = function() {
+    $scope.listarEmpregos = function() {
           EmpregosService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
@@ -26,11 +26,11 @@ app.controller('ListarEmpregosCtrl', function ($scope, toastUtil, EmpregosServic
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.empregoss = [];
+        $scope.empregos = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.empregoss = response.data;
+        $scope.empregos = response.data;
     }
 
     function onErrorCallback(error) {
