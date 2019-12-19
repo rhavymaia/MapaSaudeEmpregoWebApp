@@ -2,7 +2,7 @@
  Controlar ações da listagem de Remédios.
  */
 app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
-  CrasService) {
+  RemediosService) {
 
     $scope.nomeProduto = "";
     $scope.remedioss = [];
