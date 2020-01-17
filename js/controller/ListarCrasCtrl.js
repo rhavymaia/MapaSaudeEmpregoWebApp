@@ -1,7 +1,7 @@
 /*
  Controlar ações da listagem do Cras.
  */
-app.controller('ListarCrasCtrl', function ($scope, toastUtil,
+app.controller('ListarCrasCtrl', function ($scope, $mdDialog, toastUtil,
   CrasService) {
 
     $scope.municipio = "";
@@ -27,10 +27,12 @@ app.controller('ListarCrasCtrl', function ($scope, toastUtil,
                     .catch(onErrorCallback);
     }
 
-    $scope.limparBusca = function () {
+    let limparBusca = function () {
         $scope.municipio = "";
         $scope.crass = [];
     };
+
+    $scope.limparBusca = limparBusca;
 
     function onSuccessCallback(response) {
         $scope.crass = response.data;

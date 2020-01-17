@@ -14,7 +14,7 @@ app.factory("CrasService", function ($http, serviceCfg) {
     }
 
     var _getById = function (id) {
-        return $http.get(_path + "/" + encodeURI(id));
+        return $http.get(_path + "/id/" + encodeURI(id));
     }
 
     return {

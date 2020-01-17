@@ -1,44 +1,77 @@
 /*
- *  Controlar atualização do Campus.
+ *  Detalhar Cras.
  */
-nutrIFApp.controller('DetalharCrasCtrl', function ($scope,
-    $stateParams, $state, toastUtil, idCras, CrasService) {
+app.controller('DetalharCrasCtrl', function($scope,
+  $stateParams, $state, $mdDialog, toastUtil, idCras, CrasService) {
 
-    $scope.cras = {};
+  angular.extend($scope, {
+    focoMapa: {},
+    marcadores: {}
+  });
 
-    /**
-        Carregar os dados iniciais.
-     */
-    function carregar() {
+  $scope.crass = [];
 
-        let id = idCras;
+  /**
+      Carregar os dados iniciais.
+   */
+  function carregar() {
 
-        if (id <= 0) {
-            redirecionarListagem();
-        } else {
-            CrasService.getById(id)
-                .then(function (response) {
-                    // Response
-                    let cras = response.data;
+    let id = idCras;
 
-                    // Cras.
-                    $scope.cras = angular.copy(cras);
-                })
-                .catch(function (error) {
-                    toastUtil.showErrorToast(error);
-                    redirecionarListagem();
-                });
-        }
-    }
+    if (id <= 0) {
+      redirecionarListagem();
+    } else {
+      CrasService.getById(id)
+        .then(function(response) {
+          // Response
+          let crass = response.data;
 
-    /**
-        Redirecionar para a página de listagem.
-     */
-    function redirecionarListagem() {
-        $state.transitionTo('administrador.cras', {
-            reload: true
+          // Cras.
+          $scope.crass = angular.copy(crass);
+
+          let id = 1;
+
+          for (cras of crass) {
+            // Criar ponto no mapa baseado na lat e long do Cras.
+            let ponto = {
+              lat: cras.lat,
+              lng: cras.long,
+              focus: true,
+              message: cras.nomeCras + "-" + cras.nomeMunicipio,
+            }
+
+            // Criar nova chave no dicionário e adicionar ponto no mapa.
+            $scope.marcadores["m" + id] = ponto;
+
+            // Definir o foco no mapa.
+            if (id == 1) {
+              ponto.zoom = 8;
+              $scope.focoMapa = ponto;
+            }
+
+            // Incrementar a chave do macadares do mapa.
+            id++;
+          }
+        })
+        .catch(function(error) {
+          toastUtil.showErrorToast(error);
+          redirecionarListagem();
         });
     }
+  }
 
-    carregar();
+  /**
+      Redirecionar para a página de listagem.
+   */
+  function redirecionarListagem() {
+    $state.transitionTo('administrador.cras', {
+      reload: true
+    });
+  }
+
+  $scope.fechar = function() {
+    $mdDialog.cancel();
+  }
+
+  carregar();
 });
