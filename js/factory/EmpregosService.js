@@ -1,5 +1,5 @@
 /*
- *  Mapeamento dos serviço de CRAS.
+ *  Mapeamento dos serviço de Empregos.
  */
 app.factory("EmpregosService", function ($http, serviceCfg) {
 

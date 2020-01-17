@@ -53,25 +53,10 @@
                         <td md-cell>{{creas.nomeCreas | uppercase}}</td>
                         <td md-cell>{{creas.nomeMunicipio | uppercase}}</td>
                         <td md-cell>{{creas.uf | uppercase}}</td>
-
-                        <td md-cell>
-                            <md-button aria-label="Editar Aluno" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="edit" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Editar
-                                </md-tooltip>
-                            </md-button>
-                            <md-button aria-label="Mostrar CREAS no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="place" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Mostrar CREAS no Mapa
-                                </md-tooltip>
-                            </md-button>
-                        </td>
                     </tr>
                 </tbody>
             </table>
         </md-table-container>
-        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{crass.length}}" md-page-select></md-table-pagination>
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{creass.length}}" md-page-select></md-table-pagination>
     </md-card>
 </md-content>

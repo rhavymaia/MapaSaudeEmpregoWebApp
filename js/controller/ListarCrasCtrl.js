@@ -17,7 +17,7 @@ app.controller('ListarCrasCtrl', function ($scope, $mdDialog, toastUtil,
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.eventos = [];
+            $scope.crass = [];
         }
     };
 

@@ -1,9 +1,9 @@
 /*
  *  Mapeamento dos serviço de unidades.
  */
-app.factory("unidadeService", function ($http, serviceCfg) {
+app.factory("UnidadesService", function ($http, serviceCfg) {
 
-    var _path = serviceCfg.baseUrl() + "/rest/estabelecimentos/unidade/";
+    var _path = serviceCfg.baseUrl() + "/rest/estabelecimentos/";
 
     var _listar = function () {
         return $http.get(_path);

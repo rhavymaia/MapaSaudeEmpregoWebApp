@@ -38,6 +38,41 @@
             </md-toolbar>
 
             <!-- Tabela -->
+            <table md-table>
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column>CRAS</th>
+                        <th md-column>Município</th>
+                        <th md-column>UF</th>
+                        <th md-column>Opções</th>
+                    </tr>
+                </thead>
+
+                <tbody md-body>
+                    <tr md-row ng-repeat="cras in crass | limitTo: query.limit: (query.page - 1) * query.limit">
+                        <td md-cell>{{cras.nomeCras | uppercase}}</td>
+                        <td md-cell>{{cras.nomeMunicipio | uppercase}}</td>
+                        <td md-cell>{{cras.uf | uppercase}}</td>
+
+                        <td md-cell>
+                            <md-button aria-label="Editar Aluno" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
+                                <ng-md-icon icon="edit" size="18"></ng-md-icon>
+                                <md-tooltip md-direction="bottom">
+                                    Editar
+                                </md-tooltip>
+                            </md-button>
+                            <md-button aria-label="Mostrar CRAS no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
+                                <ng-md-icon icon="place" size="18"></ng-md-icon>
+                                <md-tooltip md-direction="bottom">
+                                    Mostrar CRAS no Mapa
+                                </md-tooltip>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Tabela -->
             <table md-table md-row-select ng-model="selectedCras">
                 <thead md-head>
                     <tr md-row>

@@ -70,6 +70,30 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         controller: 'ListarEmpregosCtrl',
         controllerAs: 'ListarEmpregos'
       })
+
+      .state('administrador.profissionais', {
+        url: '/profissionais',
+        title: 'PROFISSIONAIS',
+        templateUrl: 'view/administrador/listar-profissionais.html',
+        controller: 'ListarProfissionaisCtrl',
+        controllerAs: 'ListarProfissionais'
+      })
+
+      .state('administrador.remedios', {
+        url: '/remedios',
+        title: 'REMEDIOS',
+        templateUrl: 'view/administrador/listar-remedios.html',
+        controller: 'ListarRemediosCtrl',
+        controllerAs: 'ListarRemedios'
+      })
+
+      .state('administrador.servicosEspecializados', {
+        url: '/servicosEspecializados',
+        title: 'SERVICOSESPECIALIZADOS',
+        templateUrl: 'view/administrador/listar-servicosEspecializados.html',
+        controller: 'ListarServicosEspecializadosCtrl',
+        controllerAs: 'ListarServicosEspecializados'
+      })
   })
   //take all whitespace out of string
   .filter('nospace', function() {

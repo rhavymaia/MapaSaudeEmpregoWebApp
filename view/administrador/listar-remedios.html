@@ -8,10 +8,10 @@
                 </md-card-avatar>
 
                 <md-card-header-text>
-                    <span class="md-title">EMPREGOS</span>
+                    <span class="md-title">REMÉDIOS</span>
                     <span class="md-subhead">
-                        Digite o Município das Unidades de Saúde no Campo
-                        abaixo para buscar Empregos.
+                        Digite o Código da Unidade dos Estabelecimentos de Saúde no Campo
+                        abaixo para buscar os Remédios.
                     </span>
                 </md-card-header-text>
 
@@ -27,7 +27,7 @@
                     <ng-md-icon icon="search" size="32"></ng-md-icon>
 
                     <div class="toolbar-input" flex>
-                        <input type="text" ng-model="municipio" ng-keyup="pesquisar(municipio)" placeholder="Município">
+                        <input type="text" ng-model="codUnidade" ng-keyup="pesquisar(codUnidade)" placeholder="Município">
                     </div>
 
                     <md-button aria-label="Limpar Busca" ng-click="limparBusca()">
@@ -41,25 +41,30 @@
             <table md-table>
                 <thead md-head>
                     <tr md-row>
-                        <th md-column>Nome</th>
-                        <th md-column>Entidade Conveniada</th>
-                        <th md-column>Município</th>
-                        <th md-column>UF</th>
+                        <th md-column>Princípio Ativo</th>
+                        <th md-column>Nome do Produto</th>
+                        <th md-column>Apresentação</th>
+                        <th md-column>Classe Terapêutica</th>
+                        <th md-column>Preço Liberado</th>
+                        <th md-column>Restrição</th>
+                        <th md-column>Última Alteração</th>
                         <th md-column>Opções</th>
                     </tr>
                 </thead>
 
                 <tbody md-body>
-                    <tr md-row ng-repeat="emprego in empregos | limitTo: query.limit: (query.page - 1) * query.limit">
-                        <td md-cell>{{emprego.nome | uppercase}}</td>
-                        <td md-cell>{{emprego.entidadeConveniada | uppercase}}</td>
-                        <td md-cell>{{emprego.municipio | uppercase}}</td>
-                        <td md-cell>{{emprego.uf | uppercase}}</td>
+                    <tr md-row ng-repeat="remedio in remedios | limitTo: query.limit: (query.page - 1) * query.limit">
+                        <td md-cell>{{remedio.nomeProduto | uppercase}}</td>
+                        <td md-cell>{{remedio.apresentacao | uppercase}}</td>
+                        <td md-cell>{{remedio.classeTerapeutica | uppercase}}</td>
+                        <td md-cell>{{remedio.precoLiberado | uppercase}}</td>
+                        <td md-cell>{{remedio.restricao | uppercase}}</td>
+                        <td md-cell>{{remedio.ultimaAlteracao | uppercase}}</td>
                         <td md-cell>
                     </tr>
                 </tbody>
             </table>
         </md-table-container>
-        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{empregos.length}}" md-page-select></md-table-pagination>
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{remedios.length}}" md-page-select></md-table-pagination>
     </md-card>
 </md-content>

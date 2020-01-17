@@ -1,10 +1,10 @@
 /*
  *  Controlar ações da listagem das unidades.
  */
-app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaService) {
+app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadesService) {
 
     $scope.municipio = "";
-    $scope.unidadess = [];
+    $scope.unidades = [];
 
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
@@ -14,7 +14,7 @@ app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaServic
                     .catch(onErrorCallback);
             }
         } else if (municipio.length === 0) {
-            $scope.unidadess = [];
+            $scope.unidades = [];
         }
     };
 
@@ -26,11 +26,11 @@ app.controller('ListarUnidadesCtrl', function ($scope, toastUtil, UnidadeaServic
 
     $scope.limparBusca = function () {
         $scope.municipio = "";
-        $scope.unidadess = [];
+        $scope.unidades = [];
     };
 
     function onSuccessCallback(response) {
-        $scope.unidadess = response.data;
+        $scope.unidades = response.data;
     }
 
     function onErrorCallback(error) {
