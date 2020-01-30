@@ -49,6 +49,7 @@
                         <th md-column>Município</th>
                         <th md-column>UF</th>
                         <th md-column>Profissionais</th>
+                        <th md-column>Remédios</th>
                     </tr>
                 </thead>
 
@@ -63,9 +64,17 @@
                         <td md-cell>{{unidade.uf | uppercase}}</td>
                         <td md-cell>
                             <md-button aria-label="Listar Profissionais" ui-sref="administrador.profissionais({codUnidade: unidade.codUnidade})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="list" size="18"></ng-md-icon>
+                                <ng-md-icon icon="people" size="18"></ng-md-icon>
                                 <md-tooltip md-direction="bottom">
                                     Listar Profissionais
+                                </md-tooltip>
+                            </md-button>
+                        </td>
+                        <td md-cell>
+                            <md-button aria-label="Listar Remédios" ui-sref="administrador.profissionais({codUnidade: unidade.codUnidade})" ui-sref-opts="{reload: true}">
+                                <ng-md-icon icon="shopping_basket" size="18"></ng-md-icon>
+                                <md-tooltip md-direction="bottom">
+                                    Listar Remédios
                                 </md-tooltip>
                             </md-button>
                         </td>
