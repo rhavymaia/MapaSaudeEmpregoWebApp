@@ -1,16 +1,16 @@
 /*
  *  Mapeamento dos serviço de Profissionais.
  */
-app.factory("profissionaisService", function ($http, serviceCfg) {
+app.factory("ProfissionaisService", function ($http, serviceCfg) {
 
-    var _path = serviceCfg.baseUrl() + "/rest/profissionais/unidade/{codUnidade}";
+    var _path = serviceCfg.baseUrl() + "/rest/profissionais";
 
     var _listar = function () {
         return $http.get(_path);
     }
 
     var _buscarProfissionaisPorCodigoDaUnidade = function (codUnidade) {
-        return $http.get(_path + "?codUnidade=" + encodeURI(codUnidade));
+        return $http.get(_path + "/unidade/" + encodeURI(codUnidade));
     }
 
     var _getById = function (id) {
@@ -19,7 +19,7 @@ app.factory("profissionaisService", function ($http, serviceCfg) {
 
     return {
         listar: _listar,
-        buscarProfissioanaisPorCodigoDaUnidade: buscarProfissionaisPorCodigoDaUnidade,
+        buscarProfissionaisPorCodigoDaUnidade: _buscarProfissionaisPorCodigoDaUnidade,
         getById: _getById
     };
 });

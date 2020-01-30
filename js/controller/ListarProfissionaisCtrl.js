@@ -1,7 +1,7 @@
 /*
  *  Controlar ações da listagem de Profissionais.
  */
-app.controller('ListarProfissionaisCtrl', function ($scope, toastUtil, ProfissionaisService) {
+app.controller('ListarProfissionaisCtrl', function ($scope, $stateParams, toastUtil, ProfissionaisService) {
 
     $scope.codUnidade = "";
     $scope.profissionais = [];
@@ -19,7 +19,8 @@ app.controller('ListarProfissionaisCtrl', function ($scope, toastUtil, Profissio
     };
 
     $scope.listarProfissionais = function() {
-          ProfissionaisService.listar()
+          var _codUnidade = $stateParams.codUnidade;
+          ProfissionaisService.buscarProfissionaisPorCodigoDaUnidade(_codUnidade)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }

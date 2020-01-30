@@ -72,7 +72,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       })
 
       .state('administrador.profissionais', {
-        url: '/profissionais',
+        url: '/profissionais/unidade/:codUnidade',
         title: 'PROFISSIONAIS',
         templateUrl: 'view/administrador/listar-profissionais.html',
         controller: 'ListarProfissionaisCtrl',

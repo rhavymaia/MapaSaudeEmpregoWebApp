@@ -41,23 +41,34 @@
             <table md-table>
                 <thead md-head>
                     <tr md-row>
+                        <th md-column>Código</th>
                         <th md-column>Nome Fantasia</th>
                         <th md-column>Categoria da Unidade</th>
                         <th md-column>Natureza</th>
                         <th md-column>Vínculo SUS</th>
                         <th md-column>Município</th>
                         <th md-column>UF</th>
+                        <th md-column>Profissionais</th>
                     </tr>
                 </thead>
 
                 <tbody md-body>
                     <tr md-row ng-repeat="unidade in unidades | limitTo: query.limit: (query.page - 1) * query.limit">
+                        <td md-cell>{{unidade.codUnidade}}</td>
                         <td md-cell>{{unidade.nomeFantasia | uppercase}}</td>
                         <td md-cell>{{unidade.categoriaUnidade | uppercase}}</td>
                         <td md-cell>{{unidade.natureza | uppercase}}</td>
                         <td md-cell>{{unidade.vinculoSus | uppercase}}</td>
                         <td md-cell>{{unidade.cidade | uppercase}}</td>
                         <td md-cell>{{unidade.uf | uppercase}}</td>
+                        <td md-cell>
+                            <md-button aria-label="Listar Profissionais" ui-sref="administrador.profissionais({codUnidade: unidade.codUnidade})" ui-sref-opts="{reload: true}">
+                                <ng-md-icon icon="list" size="18"></ng-md-icon>
+                                <md-tooltip md-direction="bottom">
+                                    Listar Profissionais
+                                </md-tooltip>
+                            </md-button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

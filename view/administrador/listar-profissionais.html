@@ -43,7 +43,6 @@
                     <tr md-row>
                         <th md-column>Descrição da Atividade do Profissional</th>
                         <th md-column>Quantidade de Profissionais</th>
-                        <th md-column>Opções</th>
                     </tr>
                 </thead>
 
@@ -51,7 +50,6 @@
                     <tr md-row ng-repeat="profissional in profissionais | limitTo: query.limit: (query.page - 1) * query.limit">
                         <td md-cell>{{profissional.descricaoAtividadeProfissional | uppercase}}</td>
                         <td md-cell>{{profissional.quantidadeProfissionais | uppercase}}</td>
-                        <td md-cell>
                     </tr>
                 </tbody>
             </table>
