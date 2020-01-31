@@ -10,7 +10,7 @@
                 <md-card-header-text>
                     <span class="md-title">REMÉDIOS</span>
                     <span class="md-subhead">
-                        Digite o Código da Unidade dos Estabelecimentos de Saúde no Campo
+                        Digite o município dos Estabelecimentos de Saúde no Campo
                         abaixo para buscar os Remédios.
                     </span>
                 </md-card-header-text>
@@ -27,7 +27,7 @@
                     <ng-md-icon icon="search" size="32"></ng-md-icon>
 
                     <div class="toolbar-input" flex>
-                        <input type="text" ng-model="codUnidade" ng-keyup="pesquisar(codUnidade)" placeholder="Município">
+                        <input type="text" ng-model="produto" ng-keyup="pesquisar(produto)" placeholder="Produto">
                     </div>
 
                     <md-button aria-label="Limpar Busca" ng-click="limparBusca()">
@@ -48,19 +48,18 @@
                         <th md-column>Preço Liberado</th>
                         <th md-column>Restrição</th>
                         <th md-column>Última Alteração</th>
-                        <th md-column>Opções</th>
                     </tr>
                 </thead>
 
                 <tbody md-body>
                     <tr md-row ng-repeat="remedio in remedios | limitTo: query.limit: (query.page - 1) * query.limit">
-                        <td md-cell>{{remedio.nomeProduto | uppercase}}</td>
+                        <td md-cell>{{remedio.principioAtivo | uppercase}}</td>
+                        <td md-cell>{{remedio.produto | uppercase}}</td>
                         <td md-cell>{{remedio.apresentacao | uppercase}}</td>
                         <td md-cell>{{remedio.classeTerapeutica | uppercase}}</td>
                         <td md-cell>{{remedio.precoLiberado | uppercase}}</td>
                         <td md-cell>{{remedio.restricao | uppercase}}</td>
                         <td md-cell>{{remedio.ultimaAlteracao | uppercase}}</td>
-                        <td md-cell>
                     </tr>
                 </tbody>
             </table>

@@ -1,32 +1,31 @@
 /*
- Controlar ações da listagem de Remédios.
+ *  Controlar ações da listagem de Remédios.
  */
-app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
-  RemediosService) {
+app.controller('ListarRemediosCtrl', function ($scope, $stateParams, toastUtil, RemediosService) {
 
-    $scope.nomeProduto = "";
+    $scope.produto = "";
     $scope.remedios = [];
 
-    $scope.pesquisar = function (nomeProduto){
-        if(nomeProduto.length >= 3) {
-            if (nomeProduto.match(/[a-zA-Z]/i) != null) {
-                RemediosService.buscarRemediosPorNomeDoProduto(nomeProduto)
+    $scope.pesquisar = function (produto){
+        if(produto.length >= 3) {
+            if (produto.match(/[a-zA-Z]/i) != null) {
+                RemediosService.buscarRemedioPorProduto(produto)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
-        } else if (nomeProduto.length === 0) {
+        } else if (produto.length === 0) {
             $scope.remedios = [];
         }
     };
 
-    $scope.listar = function() {
+    $scope.listarRemedios = function() {
           RemediosService.listar()
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
 
     $scope.limparBusca = function () {
-        $scope.nomeProduto = "";
+        $scope.produto = "";
         $scope.remedios = [];
     };
 
@@ -39,10 +38,10 @@ app.controller('ListarRemediosCtrl', function ($scope, toastUtil,
     }
 
     $scope.query = {
-        order: 'nomeProduto',
+        order: 'produto',
         limit: 8,
         page: 1
     };
 
-    $scope.listar();
+    $scope.listarRemedios();
 });

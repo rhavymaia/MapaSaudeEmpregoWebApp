@@ -34,20 +34,10 @@ app.factory("menu", function($location, $rootScope) {
               type: 'link'
             },
             {
-              name: 'Profissionais',
-              state: 'administrador.profissionais',
-              type: 'link'
-            },
-            {
-              name: 'Remédios',
-              state: 'administrador.remedios',
-              type: 'link'
-            },
-            {
-              name: 'Serviços Especializados',
-              state: 'administrador.servicosEspecializados',
-              type: 'link'
-            }
+                name: 'Remédios no Brasil',
+                state: 'administrador.remedios',
+                type: 'link'
+              }
           ]
         },
         {

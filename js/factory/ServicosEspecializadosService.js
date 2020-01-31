@@ -3,7 +3,7 @@
  */
 app.factory("servicosEspecializadosService", function ($http, serviceCfg) {
 
-    var _path = serviceCfg.baseUrl() + "/rest/servicos/unidade/{codUnidade}";
+    var _path = serviceCfg.baseUrl() + "/rest/servicos";
 
     var _listar = function () {
         return $http.get(_path);

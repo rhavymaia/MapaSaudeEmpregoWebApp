@@ -88,7 +88,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       })
 
       .state('administrador.servicosEspecializados', {
-        url: '/servicosEspecializados',
+        url: '/servicosEspecializados/unidade/:codUnidade',
         title: 'SERVICOSESPECIALIZADOS',
         templateUrl: 'view/administrador/listar-servicosEspecializados.html',
         controller: 'ListarServicosEspecializadosCtrl',

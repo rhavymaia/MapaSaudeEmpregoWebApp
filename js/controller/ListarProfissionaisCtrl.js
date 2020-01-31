@@ -6,18 +6,6 @@ app.controller('ListarProfissionaisCtrl', function ($scope, $stateParams, toastU
     $scope.codUnidade = "";
     $scope.profissionais = [];
 
-    $scope.pesquisar = function (codUnidade){
-        if(codUnidade.length >= 3) {
-            if (codUnidade.match(/[a-zA-Z]/i) != null) {
-                EmpregosService.buscarProfissionaisPorCodigoDaUnidade(codUnidade)
-                    .then(onSuccessCallback)
-                    .catch(onErrorCallback);
-            }
-        } else if (codUnidade.length === 0) {
-            $scope.profissionais = [];
-        }
-    };
-
     $scope.listarProfissionais = function() {
           var _codUnidade = $stateParams.codUnidade;
           ProfissionaisService.buscarProfissionaisPorCodigoDaUnidade(_codUnidade)

@@ -1,25 +1,14 @@
 /*
  *  Controlar ações da listagem de Serviços Especializados.
  */
-app.controller('ListarServicosEspecializadosCtrl', function ($scope, toastUtil, ServicosEspecializadosService) {
+app.controller('ListarServicosEspecializadosCtrl', function ($scope, $stateParams, toastUtil, ServicosEspecializadosService) {
 
     $scope.codUnidade = "";
     $scope.servicosEspecializados = [];
 
-    $scope.pesquisar = function (codUnidade){
-        if(codUnidade.length >= 3) {
-            if (codUnidade.match(/[a-zA-Z]/i) != null) {
-                ServicoEspecializadosService.buscarServicosEspecializadosPorCodigoDaUnidade(codUnidade)
-                    .then(onSuccessCallback)
-                    .catch(onErrorCallback);
-            }
-        } else if (codUnidade.length === 0) {
-            $scope.servicosEspecializados = [];
-        }
-    };
-
     $scope.listarServicosEspecializados = function() {
-          ServicosEspecializadosService.listar()
+          var _codUnidade = $stateParams.codUnidade;
+          ServicosEspecializadosService.buscarServicosEspecializadosPorCodigoDaUnidade(_codUnidade)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
     }
@@ -43,5 +32,5 @@ app.controller('ListarServicosEspecializadosCtrl', function ($scope, toastUtil, 
         page: 1
     };
 
-    $scope.ListarServicosEspecializados();
+    $scope.listarServicosEspecializados();
 });

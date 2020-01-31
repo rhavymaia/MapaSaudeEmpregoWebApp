@@ -1,7 +1,7 @@
 /*
  *  Mapeamento dos serviço de Remédios.
  */
-app.factory("remediosService", function ($http, serviceCfg) {
+app.factory("RemediosService", function ($http, serviceCfg) {
 
     var _path = serviceCfg.baseUrl() + "/rest/remedios";
 
@@ -9,17 +9,12 @@ app.factory("remediosService", function ($http, serviceCfg) {
         return $http.get(_path);
     }
 
-    var _buscarCrasrNomeDoProduto = function (nomeProduto) {
-        return $http.get(_path + "?municipio=" + encodeURI(nomeProduto));
-    }
-
-    var _getById = function (id) {
-        return $http.get(_path + "/" + encodeURI(id));
+    var _buscarRemedioPorProduto = function (produto) {
+        return $http.get(_path + "?produto=" + encodeURI(produto));
     }
 
     return {
         listar: _listar,
-        buscarRemediosPorNomeDoProduto: _buscarRemediosPorNomeDoProduto,
-        getById: _getById
+        buscarRemedioPorProduto: _buscarRemedioPorProduto
     };
 });
