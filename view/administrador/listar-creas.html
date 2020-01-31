@@ -38,46 +38,12 @@
             </md-toolbar>
 
             <!-- Tabela -->
-            <table md-table>
-                <thead md-head>
-                    <tr md-row>
-                        <th md-column>CREAS</th>
-                        <th md-column>Município</th>
-                        <th md-column>UF</th>
-                        <th md-column>Opções</th>
-                    </tr>
-                </thead>
-
-                <tbody md-body>
-                    <tr md-row ng-repeat="creas in creass | limitTo: query.limit: (query.page - 1) * query.limit">
-                        <td md-cell>{{creas.nomeCreas | uppercase}}</td>
-                        <td md-cell>{{creas.nomeMunicipio | uppercase}}</td>
-                        <td md-cell>{{creas.uf | uppercase}}</td>
-
-                        <td md-cell>
-                            <md-button aria-label="Editar Aluno" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="edit" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Editar
-                                </md-tooltip>
-                            </md-button>
-                            <md-button aria-label="Mostrar CREAS no Mapa" ui-sref="administrador.editar-aluno({id: aluno.id})" ui-sref-opts="{reload: true}">
-                                <ng-md-icon icon="place" size="18"></ng-md-icon>
-                                <md-tooltip md-direction="bottom">
-                                    Mostrar CREAS no Mapa
-                                </md-tooltip>
-                            </md-button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Tabela -->
             <table md-table md-row-select ng-model="selectedCreas">
                 <thead md-head>
                     <tr md-row>
                       <th md-column>Id</th>
                       <th md-column>CREAS</th>
+                      <th md-column>Localização</th>
                       <th md-column>Município</th>
                       <th md-column>UF</th>
                     </tr>
@@ -85,9 +51,10 @@
 
                 <tbody md-body>
                     <tr md-row md-select="creas" md-on-select="detalharCreas" md-select-id="creas.idCreas" md-auto-select ng-repeat="creas in creass">
-                      <td md-cell>{{creas.idCras}}</td>
-                      <td md-cell>{{creas.nomeCras | uppercase}}</td>
-                      <td md-cell>{{creas.nomeMunicipio | uppercase}}</td>
+                      <td md-cell>{{creas.idCreas}}</td>
+                      <td md-cell>{{creas.nomeCreas | uppercase}}</td>
+                      <td md-cell>{{creas.localizacaoCreas | uppercase}}</td>
+                      <td md-cell>{{creas.municipio | uppercase}}</td>
                       <td md-cell>{{creas.uf | uppercase}}</td>
                     </tr>
                 </tbody>

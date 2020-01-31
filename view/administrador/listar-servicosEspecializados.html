@@ -50,7 +50,7 @@
                 <tbody md-body>
                     <tr md-row ng-repeat="servicoEspecializado in servicosEspecializados | limitTo: query.limit: (query.page - 1) * query.limit">
                         <td md-cell>{{servicoEspecializado.descricaoClassificacaoServico | uppercase}}</td>
-                        <td md-cell>{{servicoEspecializado.quantidadeProfissionais | uppercase}}</td>
+                        <td md-cell>{{servicoEspecializado.descricao | uppercase}}</td>
                         <td md-cell>
                         </td>
                     </tr>

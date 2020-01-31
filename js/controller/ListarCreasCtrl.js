@@ -12,7 +12,7 @@ app.controller('ListarCreasCtrl', function ($scope, $mdDialog, toastUtil,
     $scope.pesquisar = function (municipio){
         if(municipio.length >= 3) {
             if (municipio.match(/[a-zA-Z]/i) != null) {
-                CrsasService.buscarCrsasPorMunicipio(municipio)
+                CreasService.buscarCreasPorMunicipio(municipio)
                     .then(onSuccessCallback)
                     .catch(onErrorCallback);
             }
