@@ -10,7 +10,7 @@ app.factory("ServicosEspecializadosService", function ($http, serviceCfg) {
     }
 
     var _buscarServicosEspecializadosPorCodigoDaUnidade = function (codUnidade) {
-        return $http.get(_path + "?codUnidade=" + encodeURI(codUnidade));
+        return $http.get(_path + "/unidade/" + encodeURI(codUnidade)); 
     }
 
     var _getById = function (id) {

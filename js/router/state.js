@@ -73,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
       .state('administrador.profissionais', {
         url: '/profissionais/unidade/:codUnidade',
-        title: 'PROFISSIONAIS',
+        title: 'Profissionais',
         templateUrl: 'view/administrador/listar-profissionais.html',
         controller: 'ListarProfissionaisCtrl',
         controllerAs: 'ListarProfissionais'
@@ -81,7 +81,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
       .state('administrador.remedios', {
         url: '/remedios',
-        title: 'REMEDIOS',
+        title: 'Remédios',
         templateUrl: 'view/administrador/listar-remedios.html',
         controller: 'ListarRemediosCtrl',
         controllerAs: 'ListarRemedios'
@@ -89,7 +89,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
       .state('administrador.servicosEspecializados', {
         url: '/servicosEspecializados/unidade/:codUnidade',
-        title: 'SERVICOSESPECIALIZADOS',
+        title: 'Serviços Especializados',
         templateUrl: 'view/administrador/listar-servicosEspecializados.html',
         controller: 'ListarServicosEspecializadosCtrl',
         controllerAs: 'ListarServicosEspecializados'
