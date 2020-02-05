@@ -1,7 +1,7 @@
 /*
  *  Mapeamento de serviço dos Serviços Especializados.
  */
-app.factory("servicosEspecializadosService", function ($http, serviceCfg) {
+app.factory("ServicosEspecializadosService", function ($http, serviceCfg) {
 
     var _path = serviceCfg.baseUrl() + "/rest/servicos";
 
@@ -19,7 +19,7 @@ app.factory("servicosEspecializadosService", function ($http, serviceCfg) {
 
     return {
         listar: _listar,
-        buscarServicosEspecializadosPorCodigoDaUnidade: buscarServicosEspecializadosPorCodigoDaUnidade,
+        buscarServicosEspecializadosPorCodigoDaUnidade: _buscarServicosEspecializadosPorCodigoDaUnidade,
         getById: _getById
     };
 });

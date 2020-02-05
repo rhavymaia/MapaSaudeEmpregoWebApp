@@ -42,7 +42,7 @@ app.controller('ListarCrasCtrl', function ($scope, $mdDialog, toastUtil,
         toastUtil.showErrorToast(error);
     }
 
-    // Adicionar Dia de Refeição.
+
     $scope.detalharCras = function (cras) {
 
         let dialog = {

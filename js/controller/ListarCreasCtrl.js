@@ -42,7 +42,7 @@ app.controller('ListarCreasCtrl', function ($scope, $mdDialog, toastUtil,
         toastUtil.showErrorToast(error);
     }
 
-    // Adicionar Dia de Refeição.
+
     $scope.detalharCreas = function (creas) {
 
         let dialog = {
